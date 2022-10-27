@@ -129,10 +129,11 @@ export default {
     },
     findPerson(person) {
       this.intervalId = setInterval(() => {
-        this.random()
-        if (this.coins > this.redeemedCoins && this.coins - this.redeemedCoins > 250) {
+        if (this.coins >= this.redeemedCoins && this.coins - this.redeemedCoins >= 250) {
           this.redeemedCoins += 250
           this.myCardList.push(person)
+        } else {
+          this.random()
         }
         if (this.myCardList[this.myCardList.length - 1] === person) {
           clearInterval(this.intervalId)
