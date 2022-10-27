@@ -12,7 +12,7 @@
               ค่าเสียหาย: {{ diamonds }} 💎
             </v-col>
             <v-col cols="6">
-              Coins: {{ coins }}
+              Hallowed Coins: {{ coins }}
             </v-col>
             <v-col cols="6">
               ใช้ไป {{ redeemedCoins }}
@@ -50,7 +50,7 @@
     <v-col cols="12">
       <v-container>
         <v-row>
-          <v-col cols="3" v-for="card in myCardList">
+          <v-col cols="3" v-for="(card, i) in myCardList" :key="i">
             <span :style="['Loid', 'Yor', 'Anya'].includes(card) ? 'color: red; font-weight: bold;' : ''">{{ card }}</span>
           </v-col>
         </v-row>
@@ -74,7 +74,7 @@ export default {
     ],
     myCardList: [],
     diamonds: 0,
-    coins: 0,
+    coins: 100,
     redeemedCoins: 0,
     intervalId: null,
   }),
